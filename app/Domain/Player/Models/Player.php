@@ -7,6 +7,7 @@ use App\Domain\Tournament\Models\TournamentParticipant;
 use App\Domain\Tournament\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\PlayerFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,6 +17,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Player extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return PlayerFactory::new();
+    }
 
     protected $fillable = [
         'user_id',
